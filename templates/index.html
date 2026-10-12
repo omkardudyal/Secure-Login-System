@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}SecureGate | Home{% endblock %}
+{% block content %}
+<h1>Security starts at sign-in.</h1>
+<p>A simple demonstration of secure registration, password hashing, session-based authentication, and protected pages.</p>
+<div class="row">
+  <a class="button" href="{{ url_for('register') }}">Create account</a>
+  <a class="button secondary" href="{{ url_for('login') }}">Log in</a>
+</div>
+<p class="small">Passwords are hashed with bcrypt. Forms use CSRF protection, and database queries are parameterized.</p>
+{% endblock %}

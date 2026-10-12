@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Dashboard | SecureGate{% endblock %}
+{% block content %}
+<h1>You're signed in, {{ username }}.</h1>
+<p>This page is protected. If you log out, you must authenticate again to access it.</p>
+<div class="flash success">Authentication successful</div>
+<h3>Security features</h3>
+<ul>
+  <li>bcrypt password hashing</li>
+  <li>Parameterized SQL queries</li>
+  <li>CSRF-protected forms</li>
+  <li>Session clearing on login and logout</li>
+  <li>HTTP-only session cookie and configurable secure-cookie flag</li>
+</ul>
+<form action="{{ url_for('logout') }}" method="post">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+  <button type="submit">Log out securely</button>
+</form>
+{% endblock %}
